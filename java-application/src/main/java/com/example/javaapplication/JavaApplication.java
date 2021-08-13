@@ -21,23 +21,6 @@ public class JavaApplication {
 		SpringApplication.run(JavaApplication.class, args);
 
 
-
-
-		for(int i=1 ; i<=200 ; i++){
-			String url = "https://jsonplaceholder.typicode.com/photos/" + Integer.toString(i);
-			RestTemplate restTemplate = new RestTemplate();
-
-
-			Employee employee = restTemplate.getForObject(url, Employee.class);
-
-			if(employee.getAlbumId()!=0 && employee.getId()!=0){
-				//Add to excel
-			}
-
-
-		}
-
-
 	}
 
 
