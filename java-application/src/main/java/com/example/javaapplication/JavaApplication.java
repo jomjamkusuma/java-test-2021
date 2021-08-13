@@ -10,6 +10,7 @@ import javax.swing.table.TableStringConverter;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,16 +22,16 @@ public class JavaApplication {
 
 
 
+
 		for(int i=1 ; i<=200 ; i++){
 			String url = "https://jsonplaceholder.typicode.com/photos/" + Integer.toString(i);
-			System.out.println(url);
 			RestTemplate restTemplate = new RestTemplate();
 
 
 			Employee employee = restTemplate.getForObject(url, Employee.class);
 
 			if(employee.getAlbumId()!=0 && employee.getId()!=0){
-				//create excel
+				//Add to excel
 			}
 
 
