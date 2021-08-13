@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import javax.persistence.Entity;
+import javax.swing.table.TableStringConverter;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -19,54 +20,27 @@ public class JavaApplication {
 		SpringApplication.run(JavaApplication.class, args);
 
 
-		final String url = "https://jsonplaceholder.typicode.com/photos/1";
-		RestTemplate restTemplate = new RestTemplate();
 
-		Employee result = restTemplate.getForObject(url, Employee.class);
+		for(int i=1 ; i<=200 ; i++){
+			String url = "https://jsonplaceholder.typicode.com/photos/" + Integer.toString(i);
+			System.out.println(url);
+			RestTemplate restTemplate = new RestTemplate();
 
-		System.out.println(result.getUrl());
-		System.out.println(result.getTitle());
+
+			Employee employee = restTemplate.getForObject(url, Employee.class);
+
+			if(employee.getAlbumId()!=0 && employee.getId()!=0){
+				//create excel
+			}
+
+
+		}
 
 
 	}
 
 
-	public static class Employee {
-		private int albumId;
-		private int id;
-		private String title;
-		private String url;
 
-		public int getAlbumId() {
-			return albumId;
-		}
 
-		public void setAlbumId(int albumId) {
-			this.albumId = albumId;
-		}
 
-		public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
-		}
-
-		public String getTitle() {
-			return title;
-		}
-
-		public void setTitle(String title) {
-			this.title = title;
-		}
-
-		public String getUrl() {
-			return url;
-		}
-
-		public void setUrl(String url) {
-			this.url = url;
-		}
-	}
 }
