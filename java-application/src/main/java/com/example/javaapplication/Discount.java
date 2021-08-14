@@ -7,20 +7,30 @@ import java.util.Map;
 
 public class Discount {
 
-    public int getDiscount(List<Integer> bookList) {
+    private int[] bookList;
 
-        if(bookList.isEmpty()){
-            return 0;
+    public int getDiscount(int[] bookList) {
+        this.bookList =bookList;
+
+        if(bookList.length == 2){
+            return 5;
         }
 
-        //2 diff = 5%
-        //3 diff = 10%
-        //4 diff = 20%
-        //5 diff = 25%
+        if(bookList.length == 3){
+            return 10;
+        }
+
+        if(bookList.length == 4){
+            return 20;
+        }
+
+        if(bookList.length == 5){
+            return 25;
+        }
+
+
         return 0;
     }
-
-
 
 
 
