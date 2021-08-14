@@ -3,20 +3,22 @@ package com.example.javaapplication;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DiscountTest {
 
     @Test
-    void getIntoClass(){
-        List<Book> list = new ArrayList<Book>();
-        list.add(new Book(1,"HarryPotter1"));
+    void noBook(){
+        List<Integer> list = new ArrayList<>();
 
         Discount discount = new Discount();
-        String result = discount.getDiscount(list);
-        assertEquals("Hello",result);
+        int result = discount.getDiscount(list);
+
+        assertEquals(0 ,result);
     }
 
 }
